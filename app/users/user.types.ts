@@ -8,11 +8,11 @@ export interface IUserResponses {
 }
 
 export const UserSchema = z.object({
-	name:z.string().max(20),
-    username: z.string(),
-	email:z.string(),
-    password: z.string(),
-	role:z.string() 
+	name:z.string().max(20).trim(),
+    username: z.string().trim(),
+	email:z.string().trim(),
+    password: z.string().trim(),
+	role:z.string().trim() 
 })
 
 export interface IUser extends z.infer<typeof UserSchema>{};
