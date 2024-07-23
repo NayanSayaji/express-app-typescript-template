@@ -17,7 +17,7 @@ export const validateToken = (excludedRoutes: ExcludedRoutes) =>
             const payload = verify(token, JWT_ACCESS_TOKEN);
 
             req.payload = payload;
-            
+
             next()
         } catch (e) {
             next(authResponses.UNAUTHORISED_ACCESS_DENIED)
@@ -31,5 +31,7 @@ type Roles = Role[]
 
 const permit = (roles: Roles) =>
     (req: Request, res: Response, next: NextFunction) => {
-        if (!roles.includes(req.payload.role)) throw authResponses.UNAUTHORISED_ACCESS_DENIED;
+        if (!roles.includes(req.payload.role)) {
+            throw authResponses.UNAUTHORISED_ACCESS_DENIED;
+        }
     }
