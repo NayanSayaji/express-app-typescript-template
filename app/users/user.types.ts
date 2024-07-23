@@ -1,6 +1,6 @@
-import z, { string } from 'zod';
+import z from 'zod';
 
-export interface UserResponsesI {
+export interface IUserResponses {
 	[key: string]: {
 		statusCode: number;
 		message: string;
@@ -15,4 +15,4 @@ export const UserSchema = z.object({
 	role:z.string() 
 })
 
-export interface UserI extends z.infer<typeof UserSchema>{};
+export interface IUser extends z.infer<typeof UserSchema>{};

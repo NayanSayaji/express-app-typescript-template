@@ -1,6 +1,6 @@
-import { AuthResponsesI } from './auth.types';
+import { IAuthResponses } from './auth.types';
 
-export const authResponses: AuthResponsesI = {
+export const authResponses: IAuthResponses = {
     WRONG_PASSWORD: {
         statusCode: 400,
         message: "Incorrect password. Please try again."

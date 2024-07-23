@@ -1,10 +1,10 @@
-import { string, z } from "zod";
-import { UserI, UserResponsesI, UserSchema } from "../users/user.types";
+import { z } from "zod";
+import { IUserResponses, UserSchema } from "../users/user.types";
 
 export interface CredentialI extends z.infer<typeof Credentials> { };
 
 export const Credentials = UserSchema.pick({ username: true, password: true });
 
-export interface AuthResponsesI extends UserResponsesI { }
+export interface IAuthResponses extends IUserResponses { }
 
 export const signUpCredentials = UserSchema.pick({ username: true, password: true, name: true, email: true, role: true })

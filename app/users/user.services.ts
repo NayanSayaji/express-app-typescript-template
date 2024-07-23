@@ -1,11 +1,10 @@
-import { authReponses } from "../auth/auth.responses";
 import userRepo from "./user.repo";
 import { userResponses } from "./user.repsonse";
-import { UserI } from "./user.types";
+import { IUser } from "./user.types";
 
-const find = async (query: Partial<UserI>) => await userRepo.find(query)
+const find = async (query: Partial<IUser>) => await userRepo.find(query)
 
-const findOne = async (query: Partial<UserI>, safe?: boolean) => {
+const findOne = async (query: Partial<IUser>, safe?: boolean) => {
     try {
         const user = await userRepo.findOne(query);
         if (!user) {
@@ -19,7 +18,7 @@ const findOne = async (query: Partial<UserI>, safe?: boolean) => {
     }
 }
 
-const insertOne = async (user: UserI) => {
+const insertOne = async (user: IUser) => {
     try {
         const response = await userRepo.insertOne(user);
         if (response) return userResponses.USER_REGISTERED_SUCCESSFULLY;

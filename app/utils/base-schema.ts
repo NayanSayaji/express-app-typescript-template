@@ -1,4 +1,5 @@
 import mongoose, { Schema, SchemaDefinitionProperty } from "mongoose";
+import { UserModel } from "../users/user.schema";
 
 export class BaseSchema extends Schema {
     constructor(schema: { [key: string]: SchemaDefinitionProperty }) {
@@ -19,6 +20,7 @@ export class BaseSchema extends Schema {
             },
             createdBy : {
                 type: mongoose.Types.ObjectId,
+                ref:UserModel
             }
         },{timestamps:true});
     }

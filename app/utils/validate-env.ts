@@ -19,6 +19,7 @@ export const validateENV = () => {
     }
 };
 
+// new global object in typescript using  which we will create a namespace Express and NodeJS
 declare global {
     namespace Express {
         export interface Request {

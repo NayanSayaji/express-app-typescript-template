@@ -1,6 +1,6 @@
-import { UserResponsesI } from "./user.types";
+import { IUserResponses } from "./user.types";
 
-export const userResponses: UserResponsesI = {
+export const userResponses: IUserResponses = {
     USER_NOT_FOUND: {
         message: "USER NOT FOUND",
         statusCode: 404
