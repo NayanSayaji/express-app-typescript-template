@@ -7,6 +7,7 @@ export interface IUserResponses {
 	};
 }
 
+
 export const UserSchema = z.object({
 	name:z.string().max(20).trim(),
     username: z.string().trim(),
