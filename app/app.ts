@@ -1,15 +1,20 @@
-import express, { json } from "express"
+import express from 'express'
+import { registerMiddlewares } from './routes/routes'
+import { connectToMongoDB } from './connections/mongo.connection';
 
-export const startServer = () => {
+export const startServer = async () => {
     try {
-        const app = express();
+        await connectToMongoDB();
 
-        app.use(json());
+        const app = express()
+        registerMiddlewares(app);
 
-        app.listen(3000, () => {
-            console.log(`SERVER IS LISTENING TO THE PORT 3000 and http://localhost:3000`)
+        const { PORT } = process.env;
+        app.listen(PORT, () => {
+            console.log(`SERVER STARTED LISTENING ON PORT ${PORT}`)
         })
-    } catch (error) {
-
+    } catch (e) {
+        console.log(e);
+        process.exit(1);
     }
 }
